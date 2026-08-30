@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neuro Tone | Inscripción</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --muslin:#F4EFE6;
+    --sandstone:#D8C6AC;
+    --chambray:#3E5C76;
+    --terracotta:#C0603E;
+    --clove:#3B2E2A;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    font-family:'Poppins',sans-serif;
+    background:var(--muslin);
+    color:var(--clove);
+    display:flex;
+    justify-content:center;
+    padding:32px 16px;
+  }
+  .card{
+    max-width:480px;
+    width:100%;
+    background:#fff;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 12px 32px rgba(59,46,42,0.12);
+  }
+  .header{
+    background:var(--chambray);
+    color:var(--muslin);
+    padding:38px 28px 30px;
+    text-align:center;
+  }
+  .header h1{
+    font-family:'Lora',serif;
+    font-weight:600;
+    font-size:38px;
+    margin:0 0 8px;
+    letter-spacing:0.5px;
+  }
+  .header p{
+    margin:0;
+    font-size:14px;
+    opacity:0.9;
+    font-style:italic;
+    font-family:'Lora',serif;
+  }
+  form{
+    padding:28px 28px 32px;
+  }
+  .field{
+    margin-bottom:18px;
+  }
+  label{
+    display:block;
+    font-size:13px;
+    font-weight:600;
+    color:var(--clove);
+    margin-bottom:6px;
+  }
+  input, select{
+    width:100%;
+    padding:12px 14px;
+    border-radius:10px;
+    border:1.5px solid var(--sandstone);
+    font-family:'Poppins',sans-serif;
+    font-size:15px;
+    color:var(--clove);
+    background:var(--muslin);
+    transition:border-color 0.2s;
+  }
+  input:focus, select:focus{
+    outline:none;
+    border-color:var(--terracotta);
+  }
+  .plans{
+    display:grid;
+    gap:10px;
+  }
+  .plan-option{
+    border:1.5px solid var(--sandstone);
+    border-radius:12px;
+    padding:12px 14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+    background:var(--muslin);
+    transition:all 0.15s;
+  }
+  .plan-option:has(input:checked){
+    border-color:var(--terracotta);
+    background:#FBF0EA;
+  }
+  .plan-option input{width:auto;accent-color:var(--terracotta);}
+  .plan-text strong{display:block;font-size:14px;}
+  .plan-text span{font-size:12px;color:#6b5c56;}
+  button{
+    width:100%;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:var(--terracotta);
+    color:#fff;
+    font-family:'Poppins',sans-serif;
+    font-weight:600;
+    font-size:16px;
+    cursor:pointer;
+    margin-top:6px;
+    transition:background 0.2s;
+  }
+  button:hover{background:#a84f32;}
+  .footer-note{
+    text-align:center;
+    font-size:12px;
+    color:#8a7a72;
+    margin-top:16px;
+    font-family:'Lora',serif;
+    font-style:italic;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="header">
+    <h1>Neuro-Tone</h1>
+    <p>Activación cognitivo-musical para tu hijo/a</p>
+  </div>
+  <form id="inscripcionForm">
+    <div class="field">
+      <label for="nombreAcudiente">Nombre del acudiente</label>
+      <input type="text" id="nombreAcudiente" required placeholder="Nombre completo">
+    </div>
+    <div class="field">
+      <label for="whatsapp">Número de WhatsApp</label>
+      <input type="tel" id="whatsapp" required placeholder="Ej: 3001234567">
+    </div>
+    <div class="field">
+      <label for="nombreNino">Nombre del paciente/estudiante</label>
+      <input type="text" id="nombreNino" required placeholder="Nombre completo">
+    </div>
+    <div class="field">
+      <label for="edadNino">Edad del paciente/estudiante</label>
+      <input type="number" id="edadNino" required min="0" max="18" placeholder="Ej: 6">
+    </div>
+    <div class="field">
+      <label>Plan de interés</label>
+      <div class="plans">
+        <label class="plan-option">
+          <input type="radio" name="plan" value="Básico (8 sesiones)" required>
+          <div class="plan-text"><strong>Básico</strong><span>8 sesiones</span></div>
+        </label>
+        <label class="plan-option">
+          <input type="radio" name="plan" value="Equilibrado (10 sesiones)">
+          <div class="plan-text"><strong>Equilibrado</strong><span>10 sesiones</span></div>
+        </label>
+        <label class="plan-option">
+          <input type="radio" name="plan" value="Integral (12 sesiones)">
+          <div class="plan-text"><strong>Integral</strong><span>12 sesiones</span></div>
+        </label>
+      </div>
+    </div>
+    <button type="submit">Enviar inscripción</button>
+    <p class="footer-note">Al enviar, se abrirá WhatsApp con tus datos listos para confirmar tu cita.</p>
+  </form>
+  <div id="gracias" style="display:none; padding:40px 28px; text-align:center;">
+    <div style="width:64px;height:64px;border-radius:50%;background:var(--terracotta);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+      <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2 style="font-family:'Lora',serif;color:var(--clove);margin:0 0 10px;font-size:22px;">¡Gracias por tu inscripción!</h2>
+    <p style="color:#6b5c56;font-size:15px;line-height:1.5;margin:0;">En unos minutos nos comunicaremos contigo a través de WhatsApp.</p>
+  </div>
+</div>
+
+<script>
+  // Reemplaza este número por el WhatsApp de Neuro Tone (con código de país, sin +, sin espacios)
+  const NUMERO_WHATSAPP = "573122327509";
+  // Pega aquí la URL de tu Google Apps Script (ver instrucciones)
+  const GOOGLE_SHEET_URL = "PEGA_AQUI_TU_URL_DE_APPS_SCRIPT";
+
+  document.getElementById('inscripcionForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    const acudiente = document.getElementById('nombreAcudiente').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const nino = document.getElementById('nombreNino').value.trim();
+    const edad = document.getElementById('edadNino').value.trim();
+    const plan = document.querySelector('input[name="plan"]:checked').value;
+
+    // Guarda el registro en Google Sheets (no bloquea el envío aunque falle)
+    if (GOOGLE_SHEET_URL && GOOGLE_SHEET_URL.indexOf('PEGA_AQUI') === -1){
+      fetch(GOOGLE_SHEET_URL, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({acudiente, whatsapp, nino, edad, plan, fecha: new Date().toISOString()})
+      }).catch(()=>{});
+    }
+
+    const mensaje = `Hola, quiero inscribir a mi hijo/a en Neuro Tone.%0A%0A` +
+      `👤 Acudiente: ${acudiente}%0A` +
+      `📱 WhatsApp: ${whatsapp}%0A` +
+      `🧒 Paciente/Estudiante: ${nino}%0A` +
+      `🎂 Edad: ${edad} años%0A` +
+      `🎯 Plan de interés: ${plan}`;
+
+    const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${mensaje}`;
+    window.open(url, '_blank');
+
+    document.getElementById('inscripcionForm').style.display = 'none';
+    document.getElementById('gracias').style.display = 'block';
+  });
+</script>
+</body>
+</html>
