@@ -168,14 +168,16 @@
       </div>
     </div>
     <button type="submit">Enviar inscripción</button>
-    <p class="footer-note">Al enviar, se abrirá WhatsApp con tus datos listos para confirmar tu cita.</p>
+    <p class="footer-note">Tus datos quedan registrados automáticamente.</p>
   </form>
   <div id="gracias" style="display:none; padding:40px 28px; text-align:center;">
     <div style="width:64px;height:64px;border-radius:50%;background:var(--terracotta);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
       <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
     </div>
     <h2 style="font-family:'Lora',serif;color:var(--clove);margin:0 0 10px;font-size:22px;">¡Gracias por tu inscripción!</h2>
-    <p style="color:#6b5c56;font-size:15px;line-height:1.5;margin:0;">En unos minutos nos comunicaremos contigo a través de WhatsApp.</p>
+    <p style="color:#6b5c56;font-size:15px;line-height:1.5;margin:0 0 24px;">En unos minutos nos comunicaremos contigo a través de WhatsApp.</p>
+    <button id="btnWhatsapp" type="button" style="margin-bottom:10px;">Enviar mensaje por WhatsApp</button>
+    <button id="btnCerrar" type="button" style="background:var(--sandstone);color:var(--clove);">Cerrar</button>
   </div>
 </div>
 
@@ -183,7 +185,7 @@
   // Reemplaza este número por el WhatsApp de Neuro Tone (con código de país, sin +, sin espacios)
   const NUMERO_WHATSAPP = "573122327509";
   // Pega aquí la URL de tu Google Apps Script (ver instrucciones)
-  const GOOGLE_SHEET_URL = "PEGA_AQUI_TU_URL_DE_APPS_SCRIPT";
+  const GOOGLE_SHEET_URL = "https://script.google.com/macros/s/AKfycbxce1Fc3yKw0xBvPjjzdkTRYuAlU-Oe05OaJhGzgddsqw_y58AUkFH8kOA6lq_T0uAN/exec";
 
   document.getElementById('inscripcionForm').addEventListener('submit', function(e){
     e.preventDefault();
@@ -210,8 +212,12 @@
       `🎂 Edad: ${edad} años%0A` +
       `🎯 Plan de interés: ${plan}`;
 
-    const url = `https://wa.me/${NUMERO_WHATSAPP}?text=${mensaje}`;
-    window.open(url, '_blank');
+    document.getElementById('btnWhatsapp').onclick = function(){
+      window.open(`https://wa.me/${NUMERO_WHATSAPP}?text=${mensaje}`, '_blank');
+    };
+    document.getElementById('btnCerrar').onclick = function(){
+      document.body.innerHTML = '<div style="width:100%;text-align:center;padding:60px 20px;font-family:Poppins,sans-serif;color:#3B2E2A;">Puedes cerrar esta ventana.</div>';
+    };
 
     document.getElementById('inscripcionForm').style.display = 'none';
     document.getElementById('gracias').style.display = 'block';
